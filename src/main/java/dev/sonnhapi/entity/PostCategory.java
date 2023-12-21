@@ -1,0 +1,26 @@
+package dev.sonnhapi.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
+import java.util.Set;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "post_category")
+public class PostCategory {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "category_name")
+    private String categoryName;
+
+    @OneToMany(mappedBy="postCategory")
+    private Set<Post> posts;
+}

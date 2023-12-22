@@ -1,5 +1,6 @@
 package dev.sonnhapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,5 +23,6 @@ public class PostCategory {
     private String categoryName;
 
     @OneToMany(mappedBy="postCategory")
+    @JsonBackReference
     private Set<Post> posts;
 }

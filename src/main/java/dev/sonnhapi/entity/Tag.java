@@ -1,6 +1,7 @@
 package dev.sonnhapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,6 +24,6 @@ public class Tag {
     private String tagName;
 
     @ManyToMany(mappedBy = "listTag")
-    @JsonBackReference
+    @JsonIgnore
     private List<Post> listPost;
 }

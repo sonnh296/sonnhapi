@@ -1,5 +1,6 @@
 package dev.sonnhapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,14 +34,12 @@ public class Post implements Comparable<Post>{
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    @JsonManagedReference
     private List<Tag> listTag;
 
     @ManyToOne
     @JoinColumn(name="post_category")
-    @JsonManagedReference
+    @JsonIgnore
     private PostCategory postCategory;
-
 
     @Override
     public int compareTo(Post o) {

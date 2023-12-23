@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/post")
+@RequestMapping("/api/v1/reader/post")
 @RequiredArgsConstructor
 public class PostController {
 
@@ -24,8 +24,13 @@ public class PostController {
         return ResponseEntity.ok(postService.findByTag(tagName));
     }
 
-    @GetMapping("/category/{category}")
-    public ResponseEntity<List<Post>> findPostsByCategory(@PathVariable String category){
-        return ResponseEntity.ok(postService.findByCategory(category));
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<Post>> findPostsByCategory(@PathVariable int categoryId){
+        return ResponseEntity.ok(postService.findByCategoryId(categoryId));
+    }
+
+    @GetMapping("/id/{postId}")
+    public ResponseEntity<Post> findPostsById(@PathVariable int postId){
+        return ResponseEntity.ok(postService.findByPostId(postId));
     }
 }

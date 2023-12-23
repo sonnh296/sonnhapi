@@ -23,6 +23,5 @@ public class PostCategory {
     private String categoryName;
 
     @OneToMany(mappedBy="postCategory")
-    @JsonBackReference
     private Set<Post> posts;
 }

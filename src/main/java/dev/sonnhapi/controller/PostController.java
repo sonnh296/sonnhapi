@@ -23,4 +23,9 @@ public class PostController {
     public ResponseEntity<List<Post>> findPostsByTagName(@PathVariable String tagName){
         return ResponseEntity.ok(postService.findByTag(tagName));
     }
+
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<Post>> findPostsByCategory(@PathVariable String category){
+        return ResponseEntity.ok(postService.findByCategory(category));
+    }
 }

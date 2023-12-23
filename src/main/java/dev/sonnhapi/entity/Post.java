@@ -1,12 +1,11 @@
 package dev.sonnhapi.entity;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Builder
 @NoArgsConstructor
@@ -15,7 +14,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "posts")
-public class Post {
+public class Post implements Comparable<Post>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -41,4 +40,10 @@ public class Post {
     @JoinColumn(name="post_category")
     @JsonManagedReference
     private PostCategory postCategory;
+
+
+    @Override
+    public int compareTo(Post o) {
+        return this.priority - o.priority;
+    }
 }

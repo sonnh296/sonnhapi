@@ -8,6 +8,7 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, String> {
     Post findByTitle(String title);
 
-    //@Query("SELECT u FROM User u WHERE u.status = 1")
     List<Post> findByListTag_tagName(String tagName);
+
+    List<Post> findByPostCategory_CategoryName(String postCategory);
 }

@@ -11,24 +11,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/admin")
+@RequestMapping("/api/v1/admin/post")
 @RequiredArgsConstructor
 public class PostAdminController {
     private final PostService postService;
 
-    @GetMapping("/tag/{tagName}")
+    @GetMapping("/tagname/{tagName}")
     public ResponseEntity<List<Post>> findPostsByTagName(@PathVariable String tagName){
         return ResponseEntity.ok(postService.findByTag(tagName));
     }
-    @GetMapping("/post/{postId}")
+    @GetMapping("/id/{postId}")
     public ResponseEntity<Post> findPostsById(@PathVariable int postId){
         return ResponseEntity.ok(postService.findByPostId(postId));
     }
-    @PostMapping("/post")
+    @PostMapping("/save")
     public ResponseEntity<Post> savePost(@RequestBody PostDAO post){
         return new ResponseEntity<>(postService.savePost(post), HttpStatus.CREATED);
     }
-    @PostMapping("/post/{postId}")
+    @PostMapping("/delete/{postId}")
     public ResponseEntity<Boolean> deletePost(@PathVariable int postId){
         return new ResponseEntity<>(postService.deletePost(postId), HttpStatus.OK);
     }

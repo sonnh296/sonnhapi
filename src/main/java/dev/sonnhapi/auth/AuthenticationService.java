@@ -21,7 +21,7 @@ import static dev.sonnhapi.user.Role.ADMIN;
 public class AuthenticationService {
     private final UserRepository userRepository;
     private final AdminRepository adminRepository;
-    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 

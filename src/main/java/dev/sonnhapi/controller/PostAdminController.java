@@ -3,6 +3,7 @@ package dev.sonnhapi.controller;
 import dev.sonnhapi.DAO.PostDAO;
 import dev.sonnhapi.entity.Post;
 import dev.sonnhapi.service.PostService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Post Admin", description = "post api for admin")
 @RestController
 @RequestMapping("/api/v1/admin/post")
 @RequiredArgsConstructor

@@ -2,6 +2,7 @@ package dev.sonnhapi.controller;
 
 import dev.sonnhapi.entity.Post;
 import dev.sonnhapi.service.PostService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@Tag(name = "Post Reader", description = "post api for reader")
 @RestController
 @RequestMapping("/api/v1/reader/post")
 @RequiredArgsConstructor

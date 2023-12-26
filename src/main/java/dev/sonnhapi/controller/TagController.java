@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@io.swagger.v3.oas.annotations.tags.Tag(name = "Tag Reader", description = "tag api for admin")
 @RestController
 @RequestMapping("/api/v1/reader/tag")
 @RequiredArgsConstructor
